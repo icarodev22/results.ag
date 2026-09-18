@@ -50,11 +50,14 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   position: relative;
   margin: 0;
+  max-width: 100%;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
@@ -928,11 +931,13 @@ section { position: relative; }
 
 .metodo-box-wrap {
   position: relative;
+  width: 100%;
   max-width: 720px;
   margin: 0 auto;
   border-radius: calc(var(--radius-xl) + 2px);
   padding: 1.5px;
   isolation: isolate;
+  overflow: hidden;
 }
 
 .metodo-box-glow {
@@ -1107,14 +1112,70 @@ section { position: relative; }
 
 /* ---------- testimonials ---------- */
 
-.depoimentos-grid {
-  margin-top: 64px;
-  display: grid;
-  gap: 1.5rem;
+.depoimentos-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
 }
-@media (min-width: 1024px) { .depoimentos-grid { grid-template-columns: repeat(3, 1fr); } }
+.depoimentos-hint span {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  letter-spacing: 0.02em;
+}
+.depoimentos-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  color: var(--color-brand-green);
+  cursor: pointer;
+  animation: depoimentos-nudge 1.8s ease-in-out infinite;
+}
+.depoimentos-nav:hover { background: var(--card-hover); }
+.depoimentos-nav:focus-visible { outline: 2px solid var(--color-brand-green); outline-offset: 2px; }
+.depoimentos-nav svg { pointer-events: none; }
+
+@keyframes depoimentos-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.depoimentos-track-wrap {
+  margin-top: 64px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.depoimentos-grid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.depoimentos-grid::-webkit-scrollbar { display: none; }
+.depoimentos-grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
 
 .testimonial {
+  flex: 0 0 clamp(260px, 82vw, 380px);
+  scroll-snap-align: start;
   height: 100%;
   display: flex;
   flex-direction: column;

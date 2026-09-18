@@ -124,3 +124,65 @@
   const year = new Date().getFullYear();
   el.textContent = `© ${year} Results.AG — Todos os direitos reservados`;
 })();
+
+// ---------- Feedbacks: carrossel arrastável ----------
+(function () {
+  const track = document.getElementById("depoimentosTrack");
+  const navBtn = document.getElementById("depoimentosNavBtn");
+  if (!track) return;
+
+  // Arraste com o mouse no desktop (o touch já rola nativamente no mobile)
+  let isDown = false;
+  let moved = false;
+  let startX = 0;
+  let startScroll = 0;
+
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    moved = false;
+    startX = e.pageX;
+    startScroll = track.scrollLeft;
+    track.classList.add("is-dragging");
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startScroll - dx;
+  });
+
+  function endDrag() {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove("is-dragging");
+  }
+  window.addEventListener("mouseup", endDrag);
+  window.addEventListener("mouseleave", endDrag);
+
+  // Evita que o arraste dispare cliques indesejados dentro dos cards
+  track.addEventListener(
+    "click",
+    (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true
+  );
+
+  // Seta de navegação: avança um card (e volta ao início no final)
+  if (navBtn) {
+    navBtn.addEventListener("click", () => {
+      const card = track.querySelector(".testimonial");
+      const gap = 24;
+      const step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      track.scrollTo({
+        left: atEnd ? 0 : track.scrollLeft + step,
+        behavior: "smooth",
+      });
+    });
+  }
+})();
