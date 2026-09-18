@@ -73,14 +73,14 @@
           <span class="browser-dot"></span>
           <span class="browser-dot"></span>
           <span class="browser-dot"></span>
-          <span class="browser-url">resultsag.com.br</span>
+          <span class="browser-url">app.orbitmetrics.io</span>
         </div>
 
-        <div class="demo-app" aria-label="Demonstração interativa: painel Results.ag, projeto criado pela Results">
+        <div class="demo-app" aria-label="Demonstração interativa: painel Orbit, projeto criado pela Results.AG">
           <div class="demo-app-header">
             <div class="demo-brand">
               <span class="demo-dot-mark"></span>
-              <span>Results.ag</span>
+              <span>Orbit</span>
             </div>
             <nav class="demo-nav">
               <a href="#" class="is-active" tabindex="-1">Visão geral</a>
@@ -93,7 +93,7 @@
           <div class="demo-app-body">
             <div class="demo-toprow">
               <div>
-                <p class="demo-greeting">Boa tarde, Usuario 1</p>
+                <p class="demo-greeting">Boa tarde, Marina</p>
                 <p class="demo-subgreeting">Aqui está o desempenho da sua operação hoje</p>
               </div>
               <span class="demo-live"><i></i> ao vivo</span>
@@ -364,12 +364,20 @@
   <!-- ============ DEPOIMENTOS ============ -->
   <section class="section-pad border-t hairline">
     <div class="container">
+      <div class="depoimentos-hint reveal">
+        <span>Arraste para navegar</span>
+        <button type="button" class="depoimentos-nav" id="depoimentosNavBtn" aria-label="Ver mais avaliações">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
       <div class="section-head reveal">
         <p class="text-eyebrow">Avaliações</p>
         <h2>Clientes que alcançaram resultados</h2>
       </div>
 
-      <div class="depoimentos-grid">
+      <div class="depoimentos-track-wrap">
+        <div class="depoimentos-grid" id="depoimentosTrack">
         <figure class="testimonial card-elite reveal">
           <div class="stars">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -414,6 +422,7 @@
             <p class="role">Casa Lumen</p>
           </figcaption>
         </figure>
+        </div>
       </div>
     </div>
   </section>
