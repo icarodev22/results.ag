@@ -1,0 +1,24 @@
+/* Results.AG — complementos da versão estática (camadas do globo, abertura e estados controlados por JS) */
+[hidden]{display:none!important}
+
+/* globo global (fundo) */
+.rg-globe{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.rg-globe canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rg-globe-fallback{position:absolute;left:50%;top:46vh;width:min(1400px,170vw);height:auto;transform:translateX(-50%)}
+
+/* abertura */
+.rg-intro{position:fixed;inset:0;z-index:40;display:block;width:100%;height:100%;margin:0;padding:0;border:0;cursor:pointer;background:transparent;font-family:inherit;color:#ffffff}
+.rg-intro:focus-visible{outline:2px solid var(--rg-green);outline-offset:-6px}
+.rg-intro-wrap{position:absolute;inset:0;overflow:hidden;background:#050507;display:block}
+.rg-intro-gl,.rg-intro-2d{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.rg-intro-skip{position:absolute;left:0;right:0;bottom:max(26px,4.5vh);text-align:center;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:#8fa08c;transition:opacity .5s ease}
+.rg-intro.is-late .rg-intro-skip{opacity:0}
+
+/* enquanto a abertura está na tela, o herói espera */
+html.rg-intro-on .nav{opacity:0}
+html.rg-intro-on .hero .rise,html.rg-intro-on .hero .ln-i{animation-play-state:paused}
+
+/* botão pausar/retomar do carrossel */
+#cc-pause .ic-play{display:none}
+#cc-pause.is-paused .ic-play{display:block}
+#cc-pause.is-paused .ic-pause{display:none}

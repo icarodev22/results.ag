@@ -1,0 +1,27 @@
+Results.AG — site estático (17/10/2026)
+
+Como abrir
+- Abra o index.html no navegador, ou envie a pasta inteira para qualquer hospedagem
+  (Hostinger, Netlify, Vercel, GitHub Pages etc.). Não precisa instalar nada.
+- A abertura (globo neon com o R, órbita e seta) roda direto no navegador, sem
+  vídeo: é desenhada em tempo real com WebGL. Em aparelhos sem WebGL aparece a arte
+  oficial do globo com a mesma seta e a mesma transição.
+
+Páginas
+- index.html ...... Home: abertura, herói, carrossel 3D, serviços, como funciona, comparativo, contato e rodapé
+- projetos.html ... Projetos com as gravações reais dos sites
+- contato.html .... Contato com o formulário que abre o WhatsApp
+
+assets/
+- site.css ............ estilos (cores em variáveis no :root; verde oficial #4ee23c)
+- static.css .......... complementos da versão estática (globo, abertura, estados)
+- js/globe.js ......... globo verde de fundo (WebGL)
+- js/intro.js ......... abertura: globo neon com o R, órbita e seta de crescimento
+- js/site.js .......... menu, carrossel, formulário, barra do WhatsApp
+- globe-green-still.jpg  imagem do globo para aparelhos sem WebGL
+- *-poster.jpg / *-preview.mp4  capturas e gravações reais da TicketX, XandBap e Veluna DJ
+- brand-globe.jpg ..... arte oficial do globo (usada como alternativa leve da abertura)
+- favicon.png / apple-touch-icon.png  ícones feitos a partir da arte oficial
+
+Para trocar textos, edite os arquivos .html. Para trocar cores, edite as variáveis no
+início de assets/site.css.
